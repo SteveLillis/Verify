@@ -183,6 +183,14 @@ public static partial class VerifierSettings
         scrubUserProfile = false;
     }
 
+    internal static bool scrubTempPath = true;
+
+    public static void DontScrubTempPath()
+    {
+        InnerVerifier.ThrowIfVerifyHasBeenRun();
+        scrubTempPath = false;
+    }
+
     internal static bool sortPropertiesAlphabetically;
 
     public static void SortPropertiesAlphabetically()
